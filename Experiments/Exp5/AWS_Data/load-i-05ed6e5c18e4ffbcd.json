@@ -1,0 +1,365 @@
+{
+    "Datapoints": [
+        {
+            "Timestamp": "2018-01-12T05:27:00Z", 
+            "Average": 73.6065573770493, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T05:10:00Z", 
+            "Average": 37.7966101694916, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T04:53:00Z", 
+            "Average": 50.4918032786885, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T05:46:00Z", 
+            "Average": 5.08474576271186, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T04:36:00Z", 
+            "Average": 0.862068965517241, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T05:29:00Z", 
+            "Average": 74.4262295081969, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T05:25:00Z", 
+            "Average": 74.0000000000002, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T05:08:00Z", 
+            "Average": 38.2758620689654, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T05:44:00Z", 
+            "Average": 4.91803278688525, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T04:51:00Z", 
+            "Average": 50.1694915254237, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T05:23:00Z", 
+            "Average": 76.3934426229507, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T05:06:00Z", 
+            "Average": 37.5409836065573, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T04:49:00Z", 
+            "Average": 48.3050847457627, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T05:42:00Z", 
+            "Average": 4.9152542372879, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T04:45:00Z", 
+            "Average": 0.833333333333333, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T05:38:00Z", 
+            "Average": 62.4590163934425, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T05:21:00Z", 
+            "Average": 53.3898305084746, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T05:04:00Z", 
+            "Average": 37.6666666666667, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T04:47:00Z", 
+            "Average": 0.819672131147541, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T05:40:00Z", 
+            "Average": 39.0163934426229, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T05:36:00Z", 
+            "Average": 42.295081967213, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T05:01:00Z", 
+            "Average": 51.1666666666667, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T05:02:00Z", 
+            "Average": 54.1666666666667, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T05:37:00Z", 
+            "Average": 42.8813559322037, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T05:34:00Z", 
+            "Average": 42.8333333333334, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T04:59:00Z", 
+            "Average": 53.2203389830508, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T05:35:00Z", 
+            "Average": 42.5, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T05:00:00Z", 
+            "Average": 49.344262295082, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T04:56:00Z", 
+            "Average": 51.3559322033898, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T04:57:00Z", 
+            "Average": 49.8360655737706, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T05:32:00Z", 
+            "Average": 75.4237288135593, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T05:33:00Z", 
+            "Average": 51.9999999999997, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T04:58:00Z", 
+            "Average": 50.8333333333333, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T04:54:00Z", 
+            "Average": 52.7118644067797, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T05:30:00Z", 
+            "Average": 76.4406779661015, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T04:55:00Z", 
+            "Average": 53.2786885245902, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T05:31:00Z", 
+            "Average": 74.2622950819675, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T04:52:00Z", 
+            "Average": 50.3333333333333, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T05:45:00Z", 
+            "Average": 4.83333333333348, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T04:35:00Z", 
+            "Average": 0.833333333333333, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T05:28:00Z", 
+            "Average": 75.2542372881354, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T05:11:00Z", 
+            "Average": 37.7049180327869, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T05:07:00Z", 
+            "Average": 36.5573770491804, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T04:50:00Z", 
+            "Average": 49.016393442623, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T05:43:00Z", 
+            "Average": 5.0, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T05:26:00Z", 
+            "Average": 74.7457627118643, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T05:09:00Z", 
+            "Average": 37.7049180327869, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T05:05:00Z", 
+            "Average": 37.9661016949152, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T04:48:00Z", 
+            "Average": 0.833333333333333, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T05:41:00Z", 
+            "Average": 4.83333333333348, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T05:24:00Z", 
+            "Average": 77.1186440677966, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T05:03:00Z", 
+            "Average": 38.4999999999999, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T05:39:00Z", 
+            "Average": 62.7118644067797, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T04:46:00Z", 
+            "Average": 0.847457627118644, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T05:22:00Z", 
+            "Average": 62.2950819672131, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T04:43:00Z", 
+            "Average": 0.983606557377051, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T05:19:00Z", 
+            "Average": 55.2542372881354, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T04:44:00Z", 
+            "Average": 0.833333333333333, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T05:20:00Z", 
+            "Average": 53.1147540983608, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T05:16:00Z", 
+            "Average": 38.0000000000001, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T04:41:00Z", 
+            "Average": 1.0, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T04:42:00Z", 
+            "Average": 0.677966101694913, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T05:17:00Z", 
+            "Average": 51.0169491525422, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T05:18:00Z", 
+            "Average": 52.2950819672133, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T05:14:00Z", 
+            "Average": 38.3050847457627, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T04:39:00Z", 
+            "Average": 0.833333333333333, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T05:15:00Z", 
+            "Average": 38.3606557377049, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T04:40:00Z", 
+            "Average": 0.833333333333333, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T04:37:00Z", 
+            "Average": 0.833333333333333, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T05:12:00Z", 
+            "Average": 38.3050847457627, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T05:13:00Z", 
+            "Average": 38.0327868852458, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T04:38:00Z", 
+            "Average": 0.983606557377046, 
+            "Unit": "Percent"
+        }
+    ], 
+    "Label": "CPUUtilization"
+}

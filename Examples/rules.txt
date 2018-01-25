@@ -1,0 +1,11 @@
+AdvertisingRevenue == 0 : Cost, Redundancy, AutoScaling, Firewall
+FireEmergency == True : Redundancy, Firewall, *
+SecurityEmergency == True : Firewall, *
+((DayOfWeek == 6) and (HourOfDay > 18)) or ((DayOfWeek == 6) or (DayOfWeek == 7)) : Redundancy, AutoScaling, *
+(WeekOfYear >= 50) or (WeekOfYear == 1) : Redundancy, AutoScaling, *, Cost
+(Month == 1) or (Month == 7): Redundancy, AutoScaling, *, Cost
+((HourOfDay > 6) and (HourOfDay < 10)) or ((HourOfDay > 17) and (HourOfDay < 22)) : AutoScaling, Redundancy, Firewall, *
+AdvertisingRevenue <= 200 : Cost, *
+PeriodOfReduction == True : Redundancy, AutoScaling, *, Cost
+(HourOfDay > 6) and (HourOfDay < 20) : AutoScaling, *, Cost
+(HourOfDay <= 6) and (HourOfDay >= 20) : Redundancy, Cost, Firewall, *

@@ -1,0 +1,15 @@
+{
+    "Datapoints": [
+        {
+            "Timestamp": "2018-01-12T06:34:00Z", 
+            "Average": 0.458333333333334, 
+            "Unit": "Percent"
+        }, 
+        {
+            "Timestamp": "2018-01-12T06:33:00Z", 
+            "Average": 9.625, 
+            "Unit": "Percent"
+        }
+    ], 
+    "Label": "CPUUtilization"
+}
