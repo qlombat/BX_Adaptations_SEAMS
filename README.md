@@ -1,4 +1,4 @@
-# Modular Self-Prioritized Adaptations using Bidirectional Transformations
+# Self-Prioritized Modular Adaptations using Bidirectional Transformations
 
 ## Getting Started
 
