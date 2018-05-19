@@ -8,15 +8,15 @@ These instructions will get you a copy of the project up and running on your loc
 
 To running our project you need to have installed Haskell, Cabal and BiGUL.
 ```
-apt update
-apt install ghc
-apt install cabal-install
+sudo apt update
+sudo apt install ghc
+sudo apt install cabal-install
 ```
 
 BiGUL works with GHC 7.10 and above, and is released to Hackage, so the installation of the latest release of BiGUL is as simple as executing
 ```
-cabal update
-cabal install BiGUL --allow-newer base
+sudo cabal update
+sudo cabal install BiGUL --allow-newer base
 ```
 in the command line (i.e., the standard way of installing Haskell packages). [\[PRL - Bidirectional Programming - BiGUL\]](https://bitbucket.org/prl_tokyo/bigul/overview)
 
@@ -24,19 +24,19 @@ The project needs some Haskell packages to work
 
 Required :
 ```
-cabal install http-conduit
-cabal install temporary
-apt install awscli
+sudo cabal install http-conduit
+sudo cabal install temporary
+sudo apt install awscli
 ```
 Optional (to run benchmark) :
 ```
-cabal install criterion
-cabal install deepseq-generics
+sudo cabal install criterion
+sudo cabal install deepseq-generics
 ```
 
 if you have any problem with zlib library you can run the following line
 ```
-sudo apt install zlib1g-dev
+sudo sudo apt install zlib1g-dev
 ```
 
 
@@ -56,21 +56,21 @@ cd duduloma/Conflict/AWS/
 First, we will install the repository of Ansible
 
 ```
-apt-get install software-properties-common
-apt-add-repository ppa:ansible/ansible
-apt-get update
+sudo apt-get install software-properties-common
+sudo apt-add-repository ppa:ansible/ansible
+sudo apt-get update
 ```
 
 Then, we will install the Ansible package
 ```
-apt-get install ansible
+sudo apt-get install ansible
 ```
 
 Ansible needs also Boto3. We have to install pip and Boto.
 ```
-apt-get install python-pip
-pip install --upgrade pip
-pip install boto3
+sudo apt-get install python-pip
+sudo pip install --upgrade pip
+sudo pip install boto3
 ```
 ### Using
 #### Simple example without AWS
