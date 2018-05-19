@@ -49,7 +49,7 @@ git clone https://github.com/qlombat/Self-Prioritized-Modular-Adaptations.git
 
 The useful code to run example is in the following directory
 ```
-cd duduloma/Conflict/AWS/
+cd Self-Prioritized-Modular-Adaptations/
 ```
 
 #### Ansible
