@@ -44,7 +44,7 @@ sudo sudo apt install zlib1g-dev
 To install our project you have to clone the Git repository as follow
 
 ```
-git clone https://github.com/qlombat/duduloma.git
+git clone https://github.com/qlombat/Self-Prioritized-Modular-Adaptations.git
 ```
 
 The useful code to run example is in the following directory
