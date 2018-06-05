@@ -18,17 +18,17 @@ addSSH ls =
     map (\(FSecurityGroup i rs, port22, webOrDB) -> case (port22, webOrDB) of
         (0, 0) -> (FSecurityGroup i (addSSHRules (addWebRule rs)))
         (0, 1) -> (FSecurityGroup i (addSSHRules rs))
-        (0, 2) -> (FSecurityGroup i (addSSHRules rs)) -- todo : We have to add  port 3306
+        (0, 2) -> (FSecurityGroup i (addSSHRules rs))
         (0, 3) -> (FSecurityGroup i (addSSHRules (removeDBAccess rs)))
         (0, 4) -> (FSecurityGroup i (addSSHRules rs))
         (1, 0) -> (FSecurityGroup i (addWebRule (addSSHRules (removeSSHRule rs))))
         (1, 1) -> (FSecurityGroup i (addSSHRules (removeSSHRule rs)))
-        (1, 2) -> (FSecurityGroup i (addSSHRules (removeSSHRule rs))) -- todo : We have to add  port 3306
+        (1, 2) -> (FSecurityGroup i (addSSHRules (removeSSHRule rs)))
         (1, 3) -> (FSecurityGroup i (removeDBAccess (addSSHRules (removeSSHRule rs))))
         (1, 4) -> (FSecurityGroup i (addSSHRules (removeSSHRule rs)))
         (2, 0) -> (FSecurityGroup i (addWebRule rs))
         (2, 1) -> (FSecurityGroup i rs)
-        (2, 2) -> (FSecurityGroup i rs) -- todo : We have to add  port 3306
+        (2, 2) -> (FSecurityGroup i rs)
         (2, 3) -> (FSecurityGroup i (removeDBAccess rs))
         (2, 4) -> (FSecurityGroup i rs)) ls
     where

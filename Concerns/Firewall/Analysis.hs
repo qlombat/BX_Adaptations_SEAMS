@@ -30,13 +30,13 @@ handleSecurityGroup (FSecurityGroup name rs) =
         if (isInfixOf "database" name) then
             case checkPort22 of
                 0 -> case checkPort3306 of
-                    0 -> (FSecurityGroup name rs, 0, 2) -- todo : We have to add port 3306
+                    0 -> (FSecurityGroup name rs, 0, 2)
                     otherwise -> (FSecurityGroup name rs, 0, 3)
                 1 -> case checkPort3306 of
-                    0 -> (FSecurityGroup name rs, 1, 2) -- todo : We have to add port 3306
+                    0 -> (FSecurityGroup name rs, 1, 2)
                     otherwise -> (FSecurityGroup name rs, 1, 3)
                 otherwise -> case checkPort3306 of
-                    0 -> (FSecurityGroup name rs, 2, 2) -- todo : We have to add port 3306
+                    0 -> (FSecurityGroup name rs, 2, 2)
                     otherwise -> (FSecurityGroup name rs, 2, 3)
         else case checkPort22 of
             0 -> (FSecurityGroup name rs, 0, 4)
