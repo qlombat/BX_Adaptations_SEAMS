@@ -78,7 +78,7 @@ orderConcern x y = error ("orderConcern x y : impossible case " ++ show x ++ " "
 executeSeq :: Context -> Rules -> PriorityPolicy -> s -> [Concern s] -> IO (s, [MasterView])
 executeSeq ctx rules priorityPolicy source concerns = do
     let concernNames = map getConcernName concerns
-    let order = dertermineOrder ctx rules concernNames priorityPolicy
+    let order = determineOrder ctx rules concernNames priorityPolicy
     let concernsOrdered = reverse (orderConcern order concerns)
     res <- foldM fn (source, []) concernsOrdered
     return res

@@ -65,8 +65,6 @@ sourceToAnsibleTasks (Source instances sgs _) =
                     (indent ("ec2:\n" ++
                         (indent (instanceToAnsibleTask (sg,instType,L.length insts)))))))) (groupBySecurityGroupAndInstanceType otherNewInstance))
 
-
-
         instancesToRunStr = if idsInstancesToRun /= [] then
             (indentN 2 ("- name: run instances\n" ++
                 (indent ("ec2:\n" ++
@@ -177,6 +175,5 @@ executeAWS :: String -> String -> String -> String -> String -> String -> Source
 executeAWS access secret region keypair image lb src = do
     template <- return (generateMainTask access secret region keypair image lb)
     tmpFilePath <- writeSystemTempFile "ansible.yaml" (template ++ (sourceToAnsibleTasks src))
-    --putStrLn (template ++ (sourceToAnsibleTasks src))
     _ <- readProcess "ansible-playbook" [tmpFilePath] []
     return ()

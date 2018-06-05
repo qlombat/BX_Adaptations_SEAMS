@@ -135,8 +135,8 @@ serialize x = Char8.unpack $ encode x
 
 
 main = do
-    access <- return "AKIAI4BI63OOGVN7VCQA"
-    secret <- return "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"
+    access <- return "AKIAJ5VAHO5CNO77AABA"
+    secret <- return "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"
     region <- return "ap-northeast-1"
     keypair <- return "Quentin"
     image <- return "ami-1955cc7f"
@@ -158,7 +158,7 @@ main = do
         ("Month", I 5),
         ("AdvertisingRevenue", I 0),
         ("PeriodOfReduction", B False)])
-    rules <- ruleParser "../Examples/rules.txt" -- (2)
+    rules <- ruleParser "Examples/rules.txt" -- (2)
     rulesTriggered <- return $ evalRules ctx rules
     putStrLn("\x1b[36mGeneration of the new infrastructure ...\x1b[0m ")
     concerns <- return ([

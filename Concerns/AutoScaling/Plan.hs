@@ -18,22 +18,22 @@ import Concerns.AutoScaling.Utils
 autoScalingPlan :: [(String, Int)] -> AS.ASView -> AS.ASView
 autoScalingPlan analyses (ASView instances instanceTypes) = ASView (foldl (\acc (sg, insts) -> case find (\(sg2, i) -> sg == sg2) analyses of
     Just (_,cpuExpected) -> if (cpuExpected - (nbrCPU instanceTypes (instancesRunning insts))) >= 0
-        then acc ++ (inscreaseWithNewInstances cpuExpected sg instanceTypes (inscreaseWithOffInstances cpuExpected instanceTypes insts))
+        then acc ++ (increaseWithNewInstances cpuExpected sg instanceTypes (increaseWithOffInstances cpuExpected instanceTypes insts))
         else acc ++ (decrease cpuExpected instanceTypes insts)
-    Nothing -> error "Analyse is inconsitant with the planner data"
+    Nothing -> error "Analyse is inconsistent with the planner data"
     ) [] (groupBySecurityGroup instances)) instanceTypes
 
 
-inscreaseWithOffInstances :: Int -> [ASInstanceType] -> [ASInstance] -> [ASInstance]
-inscreaseWithOffInstances cpu instTypes instances = if (nbrCPU instTypes ((instancesStopped instances) ++ (instancesRunning instances))) < cpu
+increaseWithOffInstances :: Int -> [ASInstanceType] -> [ASInstance] -> [ASInstance]
+increaseWithOffInstances cpu instTypes instances = if (nbrCPU instTypes ((instancesStopped instances) ++ (instancesRunning instances))) < cpu
     then (instancesRunning instances) ++ map runInstance (instancesStopped instances)
     else snd (foldl (\(acc1, acc2) inst -> if acc1 < cpu
         then (acc1 + (findNumberOfCPU instTypes inst)  ,(runInstance inst):acc2)
         else (acc1, inst:acc2)) ((nbrCPU instTypes (instancesRunning instances)),(instancesRunning instances)) (instancesStopped instances))
 
 
-inscreaseWithNewInstances ::  Int -> String -> [ASInstanceType] -> [ASInstance] -> [ASInstance]
-inscreaseWithNewInstances cpu currentSG instTypes instances | cpu > (nbrCPU instTypes (instancesRunning instances)) = inscreaseWithNewInstances cpu currentSG instTypes (((\(ASInstanceType iden _ _ _) -> (ASInstance "" iden 0 1 currentSG 0)) bestInstanceType):instances)
+increaseWithNewInstances ::  Int -> String -> [ASInstanceType] -> [ASInstance] -> [ASInstance]
+increaseWithNewInstances cpu currentSG instTypes instances | cpu > (nbrCPU instTypes (instancesRunning instances)) = increaseWithNewInstances cpu currentSG instTypes (((\(ASInstanceType iden _ _ _) -> (ASInstance "" iden 0 1 currentSG 0)) bestInstanceType):instances)
                                                             | otherwise = instances
     where
         bestInstanceType = foldl (\(ASInstanceType iden1 tCPU1 tRam1 tCost1) (ASInstanceType iden2 tCPU2 tRam2 tCost2) -> if (cpu - tCPU2) > 0 && (cpu - tCPU1) > (cpu - tCPU2)

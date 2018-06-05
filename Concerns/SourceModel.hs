@@ -17,19 +17,19 @@ type Id = String
 type Description = String
 type Type = String
 type Ami = String
-type SecurityGroupRef = String
-type InstanceRefs = [String]
+type SecurityGroupRef = Id
+type InstanceRefs = [Id]
 type FromPort = Maybe Int
 type ToPort = Maybe Int
-type Ip = String
+type Ip = String           -- Format: 0.0.0.0/0 for IPv4 or  ::/0 for IPv6
 type Protocol = String
 type State = Int
 type Status = Int
 type TypeCPUs = Int
 type FirewallStatus = Int
-type Load = Double
-type TypeRAM = Double
-type TypeCost = Double
+type Load = Double         -- Unit: %
+type TypeRAM = Double      -- Unit: Gio
+type TypeCost = Double     -- Unit: $/hour
 type Outbound = Bool
 
 {- States code of Instances

@@ -15,9 +15,9 @@ import Concerns.Redundancy.Model
 import Concerns.Redundancy.Utils
 
 redundancyAnalysis :: [RInstance] -> [RSecurityGroup] -> [(RSecurityGroup, Int)]
-redundancyAnalysis instances securityGroups = (L.map (\(groupName, occurence) -> case find (\(RSecurityGroup i _) -> groupName == i) securityGroups of
-                                                                                Just s -> (s, occurence)
-                                                                                Nothing -> error ("Source inconsistent 3")) (findSecurityGroups instances))
+redundancyAnalysis instances securityGroups = (L.map (\(groupName, occurrence) -> case find (\(RSecurityGroup i _) -> groupName == i) securityGroups of
+                                                                                Just s -> (s, occurrence)
+                                                                                Nothing -> error ("Inconsistent Source")) (findSecurityGroups instances))
                                               ++ (L.map (\securityGroup -> (securityGroup, 0)) (L.filter (\(RSecurityGroup _ ref) -> (length ref == 0)) securityGroups))
 
 findSecurityGroups :: [RInstance] -> [(String, Int)]

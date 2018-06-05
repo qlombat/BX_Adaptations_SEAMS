@@ -33,22 +33,22 @@ removeWhiteSpaces s = T.strip (pack (L.filter (\c -> c /= ' ') s))
 parseRulesOrder :: String -> [RuleView]
 parseRulesOrder rules = L.map (\name -> replaceViewNames name) (L.map unpack (splitOn "," (pack rules)))
     where
-        replaceViewNames [] = error ("Rules inconsistents")
+        replaceViewNames [] = error ("Inconsistent rules")
         replaceViewNames "*" = Anything
         replaceViewNames n = V n
 
 parseCondition :: String -> RuleOperator
 parseCondition ('(':ss) = case handleParenthesis "" ss 1 of
-    (cond, ('a':ss)) -> And (parseCondition cond) (parseCondition (L.drop 2 ss))
-    (cond, ('o':ss)) -> Or (parseCondition cond) (parseCondition (L.drop 1 ss))
+    (cond, ('a':'n':'d':ss)) -> And (parseCondition cond) (parseCondition ss)
+    (cond, ('o':'r':ss)) -> Or (parseCondition cond) (parseCondition ss)
     (cond, "") -> parseCondition cond
-    (_, _) -> error ("Rules inconsistents")
+    (_, _) -> error ("Inconsistent rules")
 parseCondition ('n':'o':'t':'(':ss) = Not (parseCondition ('(':ss))
 parseCondition condition = case handleCondition "" condition of
-    (key, ('<':'=':value)) -> LessOrEqualsThen key (handleValue value)
-    (key, ('<':value)) -> LessThen key (handleValue value)
-    (key, ('>':'=':value)) -> MoreOrEqualsThen key (handleValue value)
-    (key, ('>':value)) -> MoreThen key (handleValue value)
+    (key, ('<':'=':value)) -> LessOrEqualsThan key (handleValue value)
+    (key, ('<':value)) -> LessThan key (handleValue value)
+    (key, ('>':'=':value)) -> MoreOrEqualsThan key (handleValue value)
+    (key, ('>':value)) -> MoreThan key (handleValue value)
     (key, ('=':'=':value)) -> Equals key (handleValue value)
 
 handleParenthesis :: String -> String -> Int -> (String,String)
@@ -56,7 +56,7 @@ handleParenthesis treated rest 0 = (L.init treated, rest)
 handleParenthesis treated ('(':ss) int = handleParenthesis (treated ++ "(") ss (int + 1)
 handleParenthesis treated (')':ss) int = handleParenthesis (treated ++ ")") ss (int - 1)
 handleParenthesis treated (s:ss) int = handleParenthesis (treated ++ [s]) ss int
-handleParenthesis _ _ int = error ("Rules inconsistents")
+handleParenthesis _ _ int = error ("Inconsistent rules")
 
 handleCondition :: String -> String -> (String,String)
 handleCondition treated ('<':'=':ss) = (treated, '<':'=':ss)
@@ -65,7 +65,7 @@ handleCondition treated ('>':'=':ss) = (treated, '>':'=':ss)
 handleCondition treated ('>':ss) = (treated, '>':ss)
 handleCondition treated ('=':ss) = (treated, '=':ss)
 handleCondition treated (s:ss) = handleCondition (treated ++ [s]) ss
-handleCondition _ _ = error ("Rules inconsistents")
+handleCondition _ _ = error ("Inconsistent rules")
 
 handleValue :: String -> CtxValue
 handleValue value

@@ -14,8 +14,8 @@ import Concerns.SourceModel
 import Concerns.Firewall.Model
 
 firewallUpdate :: BiGUL Source FView
-firewallUpdate = $(rearrS [| \(Source x y z) -> (y, (x, z)) |])$
-                      $(rearrV [| \(FView x) -> (x,()) |])$
+firewallUpdate = $(rearrS [| \(Source insts sgs instTypes) -> (sgs, (insts, instTypes)) |])$
+                      $(rearrV [| \(FView sgs) -> (sgs,()) |])$
                       alignSecurityGroups `Prod` (Skip (const ()))
 
 alignSecurityGroups :: BiGUL [SecurityGroup] [FSecurityGroup]

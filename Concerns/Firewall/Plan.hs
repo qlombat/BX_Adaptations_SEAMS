@@ -11,27 +11,27 @@ import Concerns.Firewall.Model
 import Concerns.Firewall.Analysis
 
 firewallPlan :: FView -> FView
-firewallPlan (FView ls) = FView (addSSH (firewallAnalysis (FView ls)))
+firewallPlan fv = FView (addSSH (firewallAnalysis fv))
 
 addSSH :: [(FSecurityGroup, Int, Int)] -> [FSecurityGroup]
-addSSH ls = 
+addSSH ls =
     map (\(FSecurityGroup i rs, port22, webOrDB) -> case (port22, webOrDB) of
         (0, 0) -> (FSecurityGroup i (addSSHRules (addWebRule rs)))
         (0, 1) -> (FSecurityGroup i (addSSHRules rs))
-        (0, 2) -> (FSecurityGroup i (addSSHRules rs))
+        (0, 2) -> (FSecurityGroup i (addSSHRules rs)) -- todo : We have to add  port 3306
         (0, 3) -> (FSecurityGroup i (addSSHRules (removeDBAccess rs)))
         (0, 4) -> (FSecurityGroup i (addSSHRules rs))
         (1, 0) -> (FSecurityGroup i (addWebRule (addSSHRules (removeSSHRule rs))))
         (1, 1) -> (FSecurityGroup i (addSSHRules (removeSSHRule rs)))
-        (1, 2) -> (FSecurityGroup i (addSSHRules (removeSSHRule rs)))
+        (1, 2) -> (FSecurityGroup i (addSSHRules (removeSSHRule rs))) -- todo : We have to add  port 3306
         (1, 3) -> (FSecurityGroup i (removeDBAccess (addSSHRules (removeSSHRule rs))))
         (1, 4) -> (FSecurityGroup i (addSSHRules (removeSSHRule rs)))
         (2, 0) -> (FSecurityGroup i (addWebRule rs))
         (2, 1) -> (FSecurityGroup i rs)
-        (2, 2) -> (FSecurityGroup i rs)
+        (2, 2) -> (FSecurityGroup i rs) -- todo : We have to add  port 3306
         (2, 3) -> (FSecurityGroup i (removeDBAccess rs))
         (2, 4) -> (FSecurityGroup i rs)) ls
-    where 
+    where
         addSSHRules ls = ls ++ [FRule True (Just 22) (Just 22) "0.0.0.0/0" "TCP", FRule False (Just 22) (Just 22) "0.0.0.0/0" "TCP"]
         removeSSHRule ls = filter (\(FRule _ from to _ _) -> not ((from == Just 22) && (to == Just 22))) ls
         addWebRule ls = ls ++ [FRule False (Just 80) (Just 80) "0.0.0.0/0" "TCP"]

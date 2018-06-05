@@ -77,7 +77,7 @@ fromAWSToSourceInstances :: AWSDescribeInstancesResponse -> [Instance]
 fromAWSToSourceInstances d = Prelude.foldl (\acc o -> acc ++ (createInstance o) ) [] (reservations d)
     where
         createInstance :: AWSReservation -> [Instance]
-        createInstance o = Prelude.foldl (\acc inst -> (Instance (instanceId inst) (instanceType inst) (imageId inst) (code (state inst)) 0 (instSg inst) 0):acc) [] (instances o)
+        createInstance o = L.map (\inst -> Instance (instanceId inst) (instanceType inst) (imageId inst) (code (state inst)) 0 (instSg inst) 0) (instances o)
 
         instSg :: AWSInstance -> String
         instSg o    | L.length (securityGroups (o)) > 0 = (groupName (L.head (securityGroups (o))))

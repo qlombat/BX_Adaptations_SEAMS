@@ -15,9 +15,9 @@ import Concerns.SourceModel
 import Concerns.Cost.Model
 
 costUpdate :: BiGUL Source CView
-costUpdate = $(rearrS [| \(Source x y z) -> (x,z,y) |])$
-                      $(rearrV [| \(CView x y) -> (x,y,()) |])$
-                      $(update [p| (x,y,z) |] [p| (x,y,z) |] [d| x = alignInstances; y = alignInstanceTypes; z = Skip (const ()) |])
+costUpdate = $(rearrS [| \(Source insts sgs instTypes)  -> (insts,instTypes,sgs) |])$
+                      $(rearrV [| \(CView insts instTypes) -> (insts,instTypes,()) |])$
+                      $(update [p| (insts,instTypes,sgs) |] [p| (insts,instTypes,sgs) |] [d| insts = alignInstances; instTypes = alignInstanceTypes; sgs = Skip (const ()) |])
 
 alignInstances :: BiGUL [Instance] [CInstance]
 alignInstances = align

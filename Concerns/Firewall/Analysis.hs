@@ -30,13 +30,13 @@ handleSecurityGroup (FSecurityGroup name rs) =
         if (isInfixOf "database" name) then
             case checkPort22 of
                 0 -> case checkPort3306 of
-                    0 -> (FSecurityGroup name rs, 0, 2)
+                    0 -> (FSecurityGroup name rs, 0, 2) -- todo : We have to add port 3306
                     otherwise -> (FSecurityGroup name rs, 0, 3)
                 1 -> case checkPort3306 of
-                    0 -> (FSecurityGroup name rs, 1, 2)
+                    0 -> (FSecurityGroup name rs, 1, 2) -- todo : We have to add port 3306
                     otherwise -> (FSecurityGroup name rs, 1, 3)
                 otherwise -> case checkPort3306 of
-                    0 -> (FSecurityGroup name rs, 2, 2)
+                    0 -> (FSecurityGroup name rs, 2, 2) -- todo : We have to add port 3306
                     otherwise -> (FSecurityGroup name rs, 2, 3)
         else case checkPort22 of
             0 -> (FSecurityGroup name rs, 0, 4)
@@ -44,6 +44,6 @@ handleSecurityGroup (FSecurityGroup name rs) =
             otherwise -> (FSecurityGroup name rs, 2, 4)
 
     where
-        checkPort22 = (length (filter (\(FRule _ from to _ _) -> if ((from == Just 22) && (to == Just 22)) then True else False) rs))
-        checkPort80 = (length (filter (\(FRule o from to _ _) -> if ((not o) && (from == Just 80) && (to == Just 80)) then True else False) rs))
-        checkPort3306 = (length (filter (\(FRule o from to _ _) -> if ((not o) && (from <= Just 3306) && (to >= Just 3306)) then True else False) rs))
+        checkPort22 = (length (filter (\(FRule _ from to _ _) -> ((from <= Just 22) && (to >= Just 22))) rs))
+        checkPort80 = (length (filter (\(FRule o from to _ _) -> ((not o) && (from <= Just 80) && (to >= Just 80))) rs))
+        checkPort3306 = (length (filter (\(FRule o from to _ _) -> ((not o) && (from <= Just 3306) && (to >= Just 3306))) rs))

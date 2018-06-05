@@ -19,9 +19,9 @@ import Concerns.Redundancy.Model as R
     the view about the redundancy concern.
 -}
 redundancyUpdate :: BiGUL S.Source R.RView
-redundancyUpdate = $(rearrS [| \(Source x y z) -> (x,y,z)|])$
-                    $(rearrV [| \(RView x y z) -> (x,y,z)|])$
-                    $(update [p|(x,y,z)|] [p|(x,y,z)|] [d|x = alignInstances; y = alignSecurityGroups; z = alignInstanceTypes|])
+redundancyUpdate = $(rearrS [| \(Source insts sgs instTypes) -> (insts,sgs,instTypes)|])$
+                    $(rearrV [| \(RView insts sgs instTypes) -> (insts,sgs,instTypes)|])$
+                    $(update [p|(insts,sgs,instTypes)|] [p|(insts,sgs,instTypes)|] [d|insts = alignInstances; sgs = alignSecurityGroups; instTypes = alignInstanceTypes|])
 
 alignInstances :: BiGUL [Instance] [RInstance]
 alignInstances = align

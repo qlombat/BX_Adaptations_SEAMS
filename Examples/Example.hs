@@ -102,7 +102,7 @@ main1 = do
         (Concern "AutoScaling" autoScalingUpdate analysisAndPlanAutoScaling),
         (Concern "Redundancy" redundancyUpdate redundancyPlan),  -- (3)
         (Concern "Firewall" firewallUpdate firewallPlan)])  -- (3)
-    res <- (executeSeq ctx rules Newer source concerns)  -- (4)
+    res <- (executeSeq ctx rules Last source concerns)  -- (4)
     putStrLn("Source updated")
     putStrLn( show (fst res)  ++ "\n")
     putStrLn("views updated")
@@ -138,7 +138,7 @@ main2 = do
         (ConcernRemote "AutoScaling" autoScalingUpdate "http://13.115.109.164/duduloma/Conflict/AWS/Scripts/analyse_and_plan_auto_scaling.php" 80 False serialize unseralizeAS),
         (ConcernRemote "Redundancy" redundancyUpdate "http://13.115.109.164/duduloma/Conflict/AWS/Scripts/analyse_and_plan_redundancy.php" 80 False serialize unseralizeR),  -- (3)
         (ConcernRemote "Firewall" firewallUpdate "http://13.115.109.164/duduloma/Conflict/AWS/Scripts/analyse_and_plan_firewall.php" 80 False serialize unseralizeF)])  -- (3)
-    res <- (executeSeq ctx rules Newer source concerns)  -- (4)
+    res <- (executeSeq ctx rules Last source concerns)  -- (4)
     putStrLn("Source updated")
     putStrLn(show (fst res)  ++ "\n")
     putStrLn("views updated")

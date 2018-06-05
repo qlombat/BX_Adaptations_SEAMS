@@ -140,8 +140,8 @@ main = do
         (Concern "Firewall" firewallUpdate firewallPlan)])  -- (3)
 
 
-    orderSafety <- evaluate $ force $ dertermineOrder ctx rules ["Cost", "AutoScaling", "Redundancy", "Firewall"] Safety
-    orderNewer <- evaluate $ force $ dertermineOrder ctx rules ["Cost", "AutoScaling", "Redundancy", "Firewall"] Newer
+    orderSafety <- evaluate $ force $ determineOrder ctx rules ["Cost", "AutoScaling", "Redundancy", "Firewall"] Safety
+    orderLast <- evaluate $ force $ determineOrder ctx rules ["Cost", "AutoScaling", "Redundancy", "Firewall"] Last
 
 
     (sourceFUpdated, MasterView ioVF) <- execBranch source (ConcernRemote "Firewall" firewallUpdate "http://ip-172-31-18-141.ap-northeast-1.compute.internal/duduloma/Conflict/AWS/Scripts/analyse_and_plan_firewall.php" 80 False serialize unseralizeF)
@@ -170,10 +170,10 @@ main = do
             bench "redundancy"  $ nf (get redundancyUpdate) source,
             bench "firewall"  $ nf (get firewallUpdate) source],
         bgroup "Synchronizer" [
-            bench "Determine order Safety"  $ nf (dertermineOrder ctx rules ["Cost", "AutoScaling", "Redundancy", "Firewall"]) Safety,
-            bench "Determine order Newer"  $ nf (dertermineOrder ctx rules ["Cost", "AutoScaling", "Redundancy", "Firewall"]) Newer,
+            bench "Determine order Safety"  $ nf (determineOrder ctx rules ["Cost", "AutoScaling", "Redundancy", "Firewall"]) Safety,
+            bench "Determine order Last"  $ nf (determineOrder ctx rules ["Cost", "AutoScaling", "Redundancy", "Firewall"]) Last,
             bench "Order Safety"  $ whnf (orderConcern orderSafety) concerns,
-            bench "Order Newer"  $ whnf (orderConcern orderNewer) concerns],
+            bench "Order Last"  $ whnf (orderConcern orderLast) concerns],
         bgroup "Analysis and Planning http" [
             bench "All (determine order, ordering and analysis & plan)"  $ nfIO (executeSeq ctx rules Safety source concerns),
             bench "Firewall"  $ nfIO (execBranch source (ConcernRemote "Firewall" firewallUpdate "http://ip-172-31-18-141.ap-northeast-1.compute.internal/duduloma/Conflict/AWS/Scripts/analyse_and_plan_firewall.php" 80 False serialize unseralizeF)),

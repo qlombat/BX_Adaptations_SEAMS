@@ -102,7 +102,7 @@ main1auto = do
         (Concern "AutoScaling" autoScalingUpdate analysisAndPlanAutoScaling),
         (Concern "Redundancy" redundancyUpdate redundancyPlan),
         (Concern "Firewall" firewallUpdate firewallPlan)])  -- (3)
-    res <- (executeSeq ctx rules Newer source concerns)  -- (4)
+    res <- (executeSeq ctx rules Last source concerns)  -- (4)
     putStrLn("\x1b[36mExecution in progress ...\x1b[0m ")
     _ <- executeAWS access secret region keypair image lb (fst res)
     putStrLn("\x1b[32m" ++ "Execution finished !\x1b[0m ")
@@ -137,7 +137,7 @@ main1 = do
         (Concern "AutoScaling" autoScalingUpdate analysisAndPlanAutoScaling),
         (Concern "Redundancy" redundancyUpdate redundancyPlan),
         (Concern "Firewall" firewallUpdate firewallPlan)])  -- (3)
-    res <- (executeSeq ctx rules Newer source concerns)  -- (4)
+    res <- (executeSeq ctx rules Last source concerns)  -- (4)
     putStrLn("\x1b[36mExecution in progress ...\x1b[0m")
     _ <- executeAWS access secret region keypair image lb (fst res)
     putStrLn("\x1b[32m" ++ "Execution finished !\x1b[0m ")
@@ -194,7 +194,7 @@ main2 = do
         (ConcernRemote "AutoScaling" autoScalingUpdate "https://www.lapromessedhelene.be/clone" 443 True serialize unseralizeAS),
         (ConcernRemote "Redundancy" redundancyUpdate "https://www.lapromessedhelene.be/clone" 443 True serialize unseralizeR),  -- (3)
         (ConcernRemote "Firewall" firewallUpdate "https://www.lapromessedhelene.be/clone" 443 True serialize unseralizeF)])  -- (3)
-    res <- (executeSeq ctx rules Newer source concerns)  -- (4)
+    res <- (executeSeq ctx rules Last source concerns)  -- (4)
     putStrLn("\x1b[36mExecution in progress ...\x1b[0m")
     _ <- executeAWS access secret region keypair image lb (fst res)
     putStrLn("\x1b[32m" ++ "Execution finished !\x1b[0m")

@@ -19,9 +19,10 @@ import Concerns.AutoScaling.Model as AS
     the view about the auto scaling concern.
 -}
 autoScalingUpdate :: BiGUL S.Source AS.ASView
-autoScalingUpdate = $(rearrS [| \(Source x z y) -> (x, y, z)|])$
-                    $(rearrV [| \(ASView x y) -> (x,y,())|])$
-                    $(update [p|(x,y,z)|] [p|(x,y,z)|] [d|x = alignInstances; y = alignInstanceTypes; z = Skip (const ())|])
+autoScalingUpdate =
+    $(rearrS [| \(Source insts sgs instTypes) -> (insts, instTypes, sgs)|])$
+    $(rearrV [| \(ASView insts instTypes) -> (insts,instTypes,())|])$
+    $(update [p|(insts,instTypes,sgs)|] [p|(insts,instTypes,sgs)|] [d| insts = alignInstances; instTypes = alignInstanceTypes; sgs = Skip (const ())|])
 
 alignInstances :: BiGUL [Instance] [ASInstance]
 alignInstances = align
